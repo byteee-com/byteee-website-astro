@@ -1,42 +1,38 @@
 ---
 const menuitems = [
   {
-    title: "Home",
-    path: "/#home",
+    title: "首页",
+    path: "/",
   },
   {
-    title: "About",
-    path: "/#about",
+    title: "关于",
+    path: "/about",
   },
   {
-    title: "Pricing",
-    path: "/#pricing",
+    title: "团队",
+    path: "/team",
   },
   {
-    title: "Team",
-    path: "/#team",
+    title: "联系",
+    path: "/contact",
   },
   {
-    title: "Contact",
-    path: "/#contact",
-  },
-  {
-    title: "Blog",
+    title: "博客",
     path: "/blog",
   },
-  {
-    title: "Pages",
-    path: "javascript:void(0)",
-    children: [
-      { title: "About Page", path: "/about" },
-      { title: "Pricing Page", path: "/pricing" },
-      { title: "Contact Page", path: "/contact" },
-      { title: "Blog Grid Page", path: "/blog" },
-      { title: "Sign Up Page", path: "/signup" },
-      { title: "Sign In Page", path: "/signin" },
-      { title: "404 Page", path: "/404" },
-    ],
-  },
+  // {
+  //   title: "Pages",
+  //   path: "javascript:void(0)",
+  //   children: [
+  //     { title: "About Page", path: "/about" },
+  //     { title: "Pricing Page", path: "/pricing" },
+  //     { title: "Contact Page", path: "/contact" },
+  //     { title: "Blog Grid Page", path: "/blog" },
+  //     { title: "Sign Up Page", path: "/signup" },
+  //     { title: "Sign In Page", path: "/signin" },
+  //     { title: "404 Page", path: "/404" },
+  //   ],
+  // },
 ];
 ---
 
@@ -175,7 +171,7 @@ const menuitems = [
               </svg>
             </span>
           </button>
-          <div class="hidden sm:flex">
+          <!-- <div class="hidden sm:flex">
             <a
               href="/signin"
               class={`${Astro.url.pathname === '/' ? 'loginBtn py-2 px-[22px] text-base font-medium text-white hover:opacity-70' : 'loginBtn py-2 px-[22px] text-base font-medium text-dark dark:text-white hover:opacity-70'}`}
@@ -189,7 +185,7 @@ const menuitems = [
               Sign Up
             </a>
           </div>
-        </div>
+        </div> -->
       </div>
     </div>
   </div>
