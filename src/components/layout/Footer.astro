@@ -11,78 +11,91 @@ publishedBlogEntries.sort(function (a, b) {
   return b.data.publishDate.valueOf() - a.data.publishDate.valueOf();
 });
 
+const host:string| null = Astro.request.headers.get('host'); // 获取请求头中的域名
+let beianText;
+
+if (host?.includes("byteee.cloud")) {
+  beianText = "蜀ICP备2022013321号-2";
+} else if (host?.includes("byteee.com")) {
+  beianText = "蜀ICP备2022013321号-3";
+} else if (host?.includes("byteee.cn")) {
+  beianText = "蜀ICP备2022013321号-1";
+} else {
+  beianText = "蜀ICP备2022013321号-1";
+}
+
 const footerLinks = [
   {
-    header: 'About Us',
+    header: '关于我们',
     links: [
       {
-        name: 'Home',
+        name: '首页',
         href: '/',
         isExternal: false,
       },
       {
-        name: 'Features',
+        name: '服务',
+        href: '/services',
+        isExternal: false,
+      },
+      {
+        name: '关于',
+        href: '/about',
+        isExternal: false,
+      },
+      {
+        name: '产品',
+        href: '/products',
+        isExternal: false,
+      },
+    ],
+  },
+  {
+    header: '我们的服务',
+    links: [
+      {
+        name: '需求分析',
         href: '/',
         isExternal: false,
       },
       {
-        name: 'About',
+        name: 'UI设计',
         href: '/',
         isExternal: false,
       },
       {
-        name: 'Testimonial',
+        name: '软件开发',
+        href: '/',
+        isExternal: false,
+      },
+      {
+        name: '系统维护',
         href: '/',
         isExternal: false,
       },
     ],
   },
   {
-    header: 'Features',
+    header: '我们的产品',
     links: [
       {
-        name: 'How it works',
-        href: '/',
-        isExternal: false,
-      },
-      {
-        name: 'Privacy policy',
-        href: '/',
-        isExternal: false,
-      },
-      {
-        name: 'Terms of Service',
-        href: '/',
-        isExternal: false,
-      },
-      {
-        name: 'Refund policy',
-        href: '/',
-        isExternal: false,
-      },
-    ],
-  },
-  {
-    header: 'Our Products',
-    links: [
-      {
-        name: 'Lineicons',
-        href: 'https://lineicons.com/',
+        name: '工具匠',
+        href: 'https://toolkk.com/',
         isExternal: true,
       },
       {
-        name: 'TailAdmin',
-        href: 'https://tailadmin.com/',
+        name: '接口派',
+        href: 'https://apihh.com/',
         isExternal: true,
       },
       {
-        name: 'TailGrids',
-        href: 'https://tailgrids.com/',
+        name: 'BSF软件基金会',
+        href: 'https://byteee.fund/',
         isExternal: true,
       },
       {
-        name: 'UIdeck',
-        href: 'https://uideck.com/',
+        name: '更多',
+        href: '',
         isExternal: true,
       },
     ],
@@ -114,8 +127,7 @@ const footerLinks = [
             />
           </a>
           <p class="mb-8 max-w-[270px] text-base text-gray-7">
-            We create digital experiences for brands and companies by using
-            technology.
+            专业的软件定制化服务商
           </p>
           <div class="-mx-3 flex items-center">
             <a href="javascript:void(0)" class="px-3 text-gray-7 hover:text-white">
@@ -222,7 +234,7 @@ const footerLinks = [
           </ul>
         </div>
       </div>
-      <div class="w-full px-4 md:w-2/3 lg:w-6/12 xl:w-3/12">
+      <!-- <div class="w-full px-4 md:w-2/3 lg:w-6/12 xl:w-3/12">
         <div class="mb-10 w-full">
           <h4 class="mb-9 text-lg font-semibold text-white">{footerLinks[3].header}</h4>
           <ul class="flex flex-col gap-8">
@@ -245,7 +257,7 @@ const footerLinks = [
             }
           </ul>
         </div>
-      </div>
+      </div> -->
     </div>
   </div>
 
@@ -281,14 +293,14 @@ const footerLinks = [
         <div class="w-full px-4 md:w-1/3 lg:w-1/2">
           <div class="my-1 flex justify-center md:justify-end">
             <p class="text-base text-gray-7">
-              Designed and Developed by
+             
               <a
-                href="https://tailgrids.com"
+                href="https://beian.miit.gov.cn/"
                 rel="nofollow noopner"
                 target="_blank"
                 class="text-gray-1 hover:underline"
               >
-                TailGrids
+                {beianText}
               </a>
             </p>
           </div>
